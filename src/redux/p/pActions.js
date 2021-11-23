@@ -1,4 +1,5 @@
 import {ADD_PERSON, DELETE_PERSON} from './pActionTypes'
+import { v4 as uuidv4 } from 'uuid'
 
 // action creator
 export const addPerson= ()=>{
@@ -6,7 +7,7 @@ export const addPerson= ()=>{
          // action type
         type: ADD_PERSON,
         payload:{
-            id: Math.random(), // not really unique but good enough here!
+            id: uuidv4(),
             name: 'John',
             age: Math.floor( Math.random() * 40 )
         }
