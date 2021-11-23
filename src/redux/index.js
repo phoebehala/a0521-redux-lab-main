@@ -1,0 +1,1 @@
+export { addPerson, deletePerson } from './p/pActions'
