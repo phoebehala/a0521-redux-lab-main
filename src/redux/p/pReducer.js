@@ -21,6 +21,7 @@ const pReducer = (state=initialState, action) => {
             return{
                 // copy the state object
                 //...state,
+                // [...state.people, action.payload] >>> ...state.people >>> copy ; action.payload >>> override/update
                 people: [...state.people, action.payload],
                 log: console.log(action.payload),
                
@@ -31,10 +32,8 @@ const pReducer = (state=initialState, action) => {
 
             // not mutating but return a new function
             return{
-                people: [...state.people.filter((person)=>{person.id!==action.payload})],
-                
-                log: console.log(action.payload),
-                log2: console.log(state.people)
+                //...state,
+                people: state.people.filter(person => person.id !== action.payload)
             }
     
         default:
